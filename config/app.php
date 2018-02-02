@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Mongodb service provider
+         * https://github.com/jenssegers/laravel-mongodb
+        */
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
     ],
 
     /*
