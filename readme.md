@@ -1,6 +1,8 @@
 # RIA2 - Datalab API
 // What is this repo about  
+
 ## Built with  
+
 ## Prerequisites
 * PHP (with PECL)
 
@@ -32,6 +34,9 @@ Make a **.env** file, or copy the example.
 Generate the key.  
 `php artisan key:generate`  
 And you should be good to go.  
+
+## Usage
+// Todo
 
 ## License
 This project is licensed under the MIT License - see the [license](license) for details.  
