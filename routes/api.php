@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+Use App\Raw;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::match('post', '/data', function(){
  //
 });
-/*
-Route::match('get/{project}', function($projectId){
+
+Route::match('get', 'data/{project}', function($project){
  //
 });
-*/
+
+Route::match('get', '/projects', function(){
+    $raw_data = Raw::all();
+    return response()->json($raw_data);    
+});

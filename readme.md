@@ -1,37 +1,60 @@
 # RIA2 - Datalab API
 // What is this repo about  
 
-## Built with  
-
 ## Prerequisites
 * PHP (with PECL)
 
 ## Installation
-Install MongoDB   
+Install MongoDB on Ubuntu 16.04:   
 ```bash
-# Download the binary files for the desired release of MongoDB. 
-curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.2.tgz  
+# Import the public key used by the package management system.  
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  
 
-# Extract the files form the downloaded archive.  
-tar -zxvf mongodb-linux-x86_64-3.6.2.tgz  
+# Create a list file for MongoDB.  
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list  
 
-# Copy the extracted archive to the target directory.  
-mkdir -p mongodb  
-cp -R -n mongodb-linux-x86_64-3.6.2/ mongodb  
+# Reload local package database.  
+sudo apt-get update  
 
-# Ensure the location of the binaries is in the PATH variable.  
-export PATH=<mongodb-install-directory>/bin:$PATH
-```
-_source: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/_  
+# Install the MongoDB packages.  
+sudo apt-get install -y mongodb-org  
+
+```  
+
+Start MongoDB.  
+```bash
+sudo service mongod start  
+```  
+_source: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/_  
+
+By default, mongodb has no enabled access control, which means there's no default user or password.  
+User creation: 
+```bash
+mongo --port 27017
+```  
+And create a admin user.  
+```bash
+use admin
+db.createUser(
+  {
+    user: "laravel",
+    pwd: "root",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+```  
+
+`apt-get install libmongoc-1.0-0`  
+
 
 install the php-mongodb driver :
 ```bash
 sudo pecl install mongodb
 ```  
-Add the following line to your `php.ini` file.  
+Add the following line to your `php.ini` file for **fpm** and **cli**.  
 `extension=mongodb.so`  
 
-_source: http://php.net/manual/en/mongodb.installation.pecl.php__  
+_source: http://php.net/manual/en/mongodb.installation.pecl.php_  
 
 Then run `composer install`  
 
