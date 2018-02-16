@@ -24,8 +24,14 @@ export PATH=<mongodb-install-directory>/bin:$PATH
 ```
 _source: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/_  
 
-install php-mongodb driver :
-http://php.net/manual/en/mongodb.installation.pecl.php  
+install the php-mongodb driver :
+```bash
+sudo pecl install mongodb
+```  
+Add the following line to your `php.ini` file.  
+`extension=mongodb.so`  
+
+_source: http://php.net/manual/en/mongodb.installation.pecl.php__  
 
 Then run `composer install`  
 
