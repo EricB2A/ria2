@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::match('post', '/data', function(){
+ //
+});
+/*
+Route::match('get/{project}', function($projectId){
+ //
+});
+*/
