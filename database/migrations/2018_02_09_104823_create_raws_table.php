@@ -13,10 +13,10 @@ class CreateRawsTable extends Migration
      */
     public function up()
     {
-        Schema::create('raws', function (Blueprint $table) {
+        Schema::create('raws', function ($table) {
             $table->increments('id');
             $table->timestamps();
-            $table->text('body');
+            $table->json('body');
             $table->string('project');
         });
     }
