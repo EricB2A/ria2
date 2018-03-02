@@ -2,10 +2,11 @@
 
 namespace App;
 
-// use Illuminate\Database\Eloquent\Model;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
+// use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Raw extends Eloquent {
-    protected $connection = 'mongodb';
+class Raw extends Model {
+    // protected $connection = 'mongodb';
     
+    protected $table = 'raws';
 }

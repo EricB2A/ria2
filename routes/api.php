@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-Use App\Raw;
+use App\Raw;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::match('post', '/data', function(){
+Route::match('post', '/data/{project}', function($project){
  //
+
 });
 
 Route::match('get', 'data/{project}', function($project){
  //
+    Raw::where('project');
 });
 
 Route::match('get', '/projects', function(){
     $raw_data = Raw::all();
-    return response()->json($raw_data);    
+    return response()->json($raw_data);
 });

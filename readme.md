@@ -44,7 +44,7 @@ db.createUser(
 )
 ```  
 
-`apt-get install libmongoc-1.0-0`  
+`sudo apt-get install libmongoc-1.0-0`  
 
 
 install the php-mongodb driver :
