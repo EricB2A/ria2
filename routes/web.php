@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::match('get', '/projects', function(){
+    $projects = \App\Project::all();
+    return response()->json($projects);
+});

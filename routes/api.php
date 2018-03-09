@@ -30,5 +30,6 @@ Route::match('get', 'data/{project}', function($project){
 
 Route::match('get', '/projects', function(){
     $raw_data = Raw::all();
+    dd($raw_data);
     return response()->json($raw_data);
 });
