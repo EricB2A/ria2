@@ -32,3 +32,9 @@ Route::match('post', '/data/{project_id}', function(Request $request, $project_i
     $project->save();
     return $project;
 }); 
+
+Route::match('get', 'data/{project_id}', function($project_id){
+    // $project = Project::find(["project_id", $project_id]);
+    $project = Project::where("project_id", $project_id)->get();
+    return response()->json($project);
+});
