@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Raw;
+use App\Project;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,18 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::match('post', '/data/{project}', function($project){
- //
-
-});
-
-Route::match('get', 'data/{project}', function($project){
- //
-    Raw::where('project');
-});
-
 Route::match('get', '/projects', function(){
-    $raw_data = Raw::all();
-    dd($raw_data);
-    return response()->json($raw_data);
+    $projects = Project::all();
+    return response()->json($projects);
 });
+
+Route::match('post', '/data/{project_id}', function(Request $request, $project_id){
+    $project = new Project;
+    $project->project_id = $project_id;
+    $project->date = Carbon::today();
+    $project->save();
+    return $project;
+}); 

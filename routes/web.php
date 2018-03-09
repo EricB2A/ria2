@@ -11,12 +11,21 @@
 |
 */
 
+use App\Project;
+use Carbon\Carbon;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::match('get', '/projects', function(){
-    $projects = \App\Project::all();
+    $projects = Project::all();
     return response()->json($projects);
+});
+
+Route::match('post', '/data/{project_id}', function(Request $request, $project_id){
+    $project = new Project;
+    $project->project_id = $project_id;
+    $project->date = Carbon::today();
+    return $project->save();
 });
