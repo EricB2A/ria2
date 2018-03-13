@@ -23,11 +23,3 @@ Route::match('get', '/projects', function(){
     // return response()->json($projects);
     return view('projects')->with('projects', $projects);
 });
-
-Route::match('post', '/project/{project_id}', function(Request $request, $project_id){
-    $project = new Project;
-    $project->project_id = $project_id;
-    $project->date = Carbon::today();
-    return $project->save();
-});
-
