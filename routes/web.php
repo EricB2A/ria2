@@ -20,12 +20,14 @@ Route::get('/', function () {
 
 Route::match('get', '/projects', function(){
     $projects = Project::all();
-    return response()->json($projects);
+    // return response()->json($projects);
+    return view('projects')->with('projects', $projects);
 });
 
-Route::match('post', '/data/{project_id}', function(Request $request, $project_id){
+Route::match('post', '/project/{project_id}', function(Request $request, $project_id){
     $project = new Project;
     $project->project_id = $project_id;
     $project->date = Carbon::today();
     return $project->save();
 });
+

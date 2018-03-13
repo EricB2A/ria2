@@ -25,7 +25,7 @@ Route::match('get', '/projects', function(){
     return response()->json($projects);
 });
 
-Route::match('post', '/data/{project_id}', function(Request $request, $project_id){
+Route::match('post', '/project/{project_id}', function(Request $request, $project_id){
     $project = new Project;
     $project->project_id = $project_id;
     $project->date = Carbon::today();
@@ -34,7 +34,7 @@ Route::match('post', '/data/{project_id}', function(Request $request, $project_i
     return $project;
 }); 
 
-Route::match('get', 'data/{project_id}', function($project_id){
+Route::match('get', 'project/{project_id}', function($project_id){
     $project = Project::where("project_id", $project_id)->get();
     return response()->json($project);
 });
