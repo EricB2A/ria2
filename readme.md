@@ -1,5 +1,9 @@
 # RIA2 - Datalab API
-// What is this repo about  
+
+This project setup a basic **API** for the *CPNV DATALAB*.  
+The api allow people to access to the data used in during the project.  
+
+For more information, the [documentation](fr.docs.md) is avaiable (in french).  
 
 ## Prerequisites
 * PHP (with PECL)
@@ -65,7 +69,16 @@ Generate the key.
 And you should be good to go.  
 
 ## Usage
-// Todo
+
+| method | route                      | description                                 | fields     |   |
+|--------|----------------------------|---------------------------------------------|------------|---|
+| GET    | /api/projects              | Return a list of all the projects.          |            |   |
+| POST   | /api/projects/{project_id} | Create (or update) a project with its data. | json: data |   |
+| GET    | /api/projects/{project_id} | Get specific project                        |            |   |
+
+## Docs
+
+* [French documentation](fr.docs.md)
 
 ## License
 This project is licensed under the MIT License - see the [license](license) for details.  
