@@ -16,7 +16,7 @@ use Carbon\Carbon;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function(Request $request) {
     return $request->user();
 });
 
@@ -32,7 +32,7 @@ Route::match('post', '/projects/{project_id}', function(Request $request, $proje
     $project->data = json_decode($request->data);
     $project->save();
     return $project;
-}); 
+});
 
 Route::match('get', 'projects/{project_id}', function($project_id){
     $project = Project::where("project_id", $project_id)->get();

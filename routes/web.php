@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match('get', '/projects', function(){
+Route::match('get', '/projects', function() {
     $projects = Project::all();
     // return response()->json($projects);
     return view('projects')->with('projects', $projects);

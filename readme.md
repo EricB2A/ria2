@@ -6,6 +6,7 @@ The api allow people to access to the data used in during the project.
 For more information, the [documentation](fr.docs.md) is avaiable (in french).  
 
 ## Prerequisites
+* Apache / Nginx
 * PHP (with PECL)
 
 ## Installation
@@ -58,6 +59,8 @@ sudo pecl install mongodb
 Add the following line to your `php.ini` file for **fpm** and **cli**.  
 `extension=mongodb.so`  
 
+sudo systemctl restart php7.2-fpm.service
+    
 _source: http://php.net/manual/en/mongodb.installation.pecl.php_  
 
 Then run `composer install`  
@@ -70,11 +73,11 @@ And you should be good to go.
 
 ## Usage
 
-| method | route                      | description                                 | fields     |   |
-|--------|----------------------------|---------------------------------------------|------------|---|
-| GET    | /api/projects              | Return a list of all the projects.          |            |   |
-| POST   | /api/projects/{project_id} | Create (or update) a project with its data. | json: data |   |
-| GET    | /api/projects/{project_id} | Get specific project                        |            |   |
+| method | route                      | description                                 | fields     |
+|--------|----------------------------|---------------------------------------------|------------|
+| GET    | /api/projects              | Return a list of all the projects.          |            |
+| POST   | /api/projects/{project_id} | Create (or update) a project with its data. | json: data |
+| GET    | /api/projects/{project_id} | Get specific project                        |            |
 
 ## Docs
 
