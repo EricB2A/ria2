@@ -26,7 +26,7 @@ Route::match('get', '/projects', function(){
 });
 
 Route::match('post', '/projects/{project_id}', function(Request $request, $project_id){
-    $project = Project::findOrNew($project_id);
+    $project = New Project();
     $project->project_id = $project_id;
     $project->date = Carbon::today();
     $project->data = json_decode($request->data);
