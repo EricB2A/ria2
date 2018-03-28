@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::match('get', '/projects', function() {
-    $projects = Project::all();
+    $projects = Project::groupBy("project_id")->get();
     // return response()->json($projects);
     return view('projects')->with('projects', $projects);
 });
