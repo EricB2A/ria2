@@ -30,6 +30,11 @@ Start MongoDB.
 ```bash
 sudo service mongod start  
 ```  
+To keep the service up in case of reboot, use  
+```bash
+sudo systemctl enable mongod
+```  
+
 _source: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/_  
 
 By default, mongodb has no enabled access control, which means there's no default user or password.  
